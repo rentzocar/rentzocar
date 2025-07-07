@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Car Rental UI</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f4f4;
+    }
+
+    .header {
+      background: url('https://images.unsplash.com/photo-1511300636408-a63a89df3482') no-repeat center/cover;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 2vw;
+    }
+
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    .form-section {
+      background-color: white;
+      margin-top: -40px;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-section label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .form-section input[type="text"],
+    .form-section input[type="datetime-local"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 16px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .btn {
+      width: 100%;
+      background-color: #065f46;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .hot-deals {
+      padding: 20px 0;
+    }
+
+    .hot-deals h2 {
+      font-size: 1.5rem;
+      margin-bottom: 16px;
+    }
+
+    .car-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .car-card {
+      background: white;
+      border-radius: 12px;
+      padding: 12px;
+      flex: 1 1 calc(33% - 20px);
+      min-width: 220px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .car-card img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .discount {
+      background: green;
+      color: white;
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      display: inline-block;
+      margin-bottom: 6px;
+    }
+
+    .bottom-nav {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: space-around;
+      padding: 10px 0;
+      box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+    }
+
+    .bottom-nav div {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .car-card {
+        flex: 1 1 100%;
+      }
+
+      .header h1 {
+        font-size: 5vw;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Own a car without actually buying it.<br>So book now...</h1>
+  </div>
+
+  <div class="container">
+    <div class="form-section">
+      <label for="location">Select Pick-up Location</label>
+      <input type="text" id="location" value="2972 Westheimer Rd. Santa Ana, Illinois 85486" />
+
+      <label for="start">Start Trip</label>
+      <input type="datetime-local" id="start" value="2025-07-07T11:00" />
+
+      <label for="end">End Trip</label>
+      <input type="datetime-local" id="end" value="2025-07-09T18:00" />
+
+      <button class="btn" onclick="findCars()">Find Cars</button>
+    </div>
+
+    <div class="hot-deals">
+      <h2>Hot Deals</h2>
+      <div class="car-cards">
+        <div class="car-card">
+          <div class="discount">30% OFF</div>
+          <img src="https://cdn.pixabay.com/photo/2017/01/06/19/15/audi-1957037_1280.jpg" alt="Audi" />
+          <p><strong>Audi</strong><br>$70 / day<br>⭐ 5.0</p>
+        </div>
+        <div class="car-card">
+          <div class="discount">25% OFF</div>
+          <img src="https://cdn.pixabay.com/photo/2017/03/27/14/56/bmw-2179388_1280.jpg" alt="BMW" />
+          <p><strong>BMW</strong><br>$90 / day<br>⭐ 4.5</p>
+        </div>
+        <div class="car-card">
+          <div class="discount">30% OFF</div>
+          <img src="https://cdn.pixabay.com/photo/2016/11/29/04/17/auto-1868726_1280.jpg" alt="Volvo" />
+          <p><strong>Volvo</strong><br>$80 / day<br>⭐ 4.9</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <div>🏠<br>Home</div>
+    <div>📖<br>My Booking</div>
+    <div>👤<br>Profile</div>
+  </div>
+
+  <script>
+    function findCars() {
+      const location = document.getElementById('location').value;
+      const start = document.getElementById('start').value;
+      const end = document.getElementById('end').value;
+      alert(`Searching cars for:\nLocation: ${location}\nFrom: ${start}\nTo: ${end}`);
+    }
+  </script>
+</body>
+</html>
